@@ -50,13 +50,23 @@ function dojoInit() {
 					htmlString = "";  // Make a blank string to hold 
 					
 					// Iterate over the catalogResults to generate a ListItem for each item entry on the BrowseList view
-					for(var i = 0; i < catalogResults.length; i++)
-							htmlString += '<div data-dojo-type="dojox.mobile.ListItem" moveTo=\'itemDetails\' onclick=\'showDetails('+i+')\'>' + catalogResults[i].itemDescription + '</div>';
-		
-					registry.byId("catalogList").destroyDescendants();  // Delete the old catalog data
+				//	for(var i = 0; i < catalogResults.length; i++)
+							
+					//		htmlString += '<div data-dojo-type="dojox.mobile.ListItem">' + 'FIRST NAME :' + catalogResults.OUT_FIRST_NAME + '</div>';
+					//		htmlString += '<div data-dojo-type="dojox.mobile.ListItem">' + 'LAST NAME  :' + catalogResults.OUT_LAST_NAME + '</div>';
+					//		htmlString += '<div data-dojo-type="dojox.mobile.ListItem">' + 'EXTENSION  :' + catalogResults.OUT_EXTENSION + '</div>';
+					//		htmlString += '<div data-dojo-type="dojox.mobile.ListItem">' + 'ZIP CODE   :' + catalogResults.OUT_ZIP_CODE + '</div>';
+							
+							registry.byId("fn").set("value",catalogResults.OUT_FIRST_NAME);
+							registry.byId("ln").set("value",catalogResults.OUT_LAST_NAME);
+							registry.byId("ext").set("value",catalogResults.OUT_EXTENSION);
+							registry.byId("zip").set("value",catalogResults.OUT_ZIP_CODE);
+							
+					registry.byId("phonebookList").destroyDescendants();  // Delete the old catalog data
 					
 					// Set the viewable catalogList to use the new list of items
-					var listView = dom.byId("catalogList");
+					alert('html'+catalogResults.length);
+					var listView = dom.byId("phonebookList");
 					listView.innerHTML = htmlString;
 					parser.parse(listView);
 					
@@ -81,13 +91,17 @@ var invocationData = {
 		procedure: "inquirePhoneBook",
 		parameters: [inquireObject]
 };
+//alert('result-sree1' + invocationData);
 console.log('inquirePhoneBook:invocationData: '+JSON.stringify(invocationData));
 WL.Client.invokeProcedure(invocationData, {
 	onSuccess : function (result) {
-	//	catalogResults = result.invocationResult.;
-	//	showCatalog();
-		console.log('successful invokation' +JSON.stringify(result));
-	},
+		console.log('results-sree1' + result);
+		 WL.Logger.debug("Retrieve success" +  JSON.stringify(result));
+		alert('result-sree2' + JSON.stringify(result));
+		catalogResults =result.invocationResult.SERVICE_OUTPUT.IVTNO_OUTPUT_MSG;
+		alert('statuscode'+JSON.stringify(catalogResults));
+		showCatalog();
+		},
 	onFailure : function (result) {
 		alert("Invocation failed: "+JSON.stringify(result));
 	},

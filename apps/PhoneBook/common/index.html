@@ -27,20 +27,29 @@
 			data-dojo-props="label:'Selection', fixed:'top'"></div>
 		<div data-dojo-type="dojox.mobile.EdgeToEdgeList">
 			<div data-dojo-type="dojox.mobile.ListItem"
-				data-dojo-props="label:'Browse Contact', moveTo:'contactDetails'"
-				onclick="inquirePhoneBook"></div>
+				data-dojo-props="label:'Browse Contact', moveTo:'contactDetails'"></div>
 			<div data-dojo-type="dojox.mobile.ListItem"
 				data-dojo-props="label:'Delete Contact'"></div>
 			<div data-dojo-type="dojox.mobile.ListItem"
 				data-dojo-props="label:'Browse first 50 Contacts'"></div>
 		</div>
 	</div>
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="enterDetails"
+		data-dojo-props="selected:false,scrollDir:'v'">
+		<div data-dojo-type="dojox.mobile.Heading"
+			data-dojo-props="label:'Enter Details',back:'Back',moveTo:'selectionList',fixed:'top'"></div>
+		<label for="ln1" style="font-weight: bold">Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln"><br>
+		<button data-dojo-type="dojox.mobile.Button" id="OrderItemButton" style="font-weight: bold" onclick="inquirePhoneBook">Get Details</button>		
+	</div>
+	
 	<div data-dojo-type="dojox.mobile.ScrollableView" id="contactDetails"
 		data-dojo-props="selected:false,scrollDir:'v'">
 		<div data-dojo-type="dojox.mobile.Heading"
-			data-dojo-props="label:'Contact Details',back:'Back',moveTo:'selectionList',fixed:'top'"></div>
-		<div data-dojo-type="dojox.mobile.EdgeToEdgeList" id="phonebookList">
-		</div>
+			data-dojo-props="label:'Contact Details',back:'Back',moveTo:'enterDetails',fixed:'top'"></div>
+		<label for="fn" style="font-weight: bold">  First Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="fn"><br>
+		<label for="ln" style="font-weight: bold">  Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln"><br>
+		<label for="ext" style="font-weight: bold"> Extension :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ext"><br>
+		<label for="zip" style="font-weight: bold"> Zip Code  :</label> <input data-dojo-type="dojox.mobile.TextBox" id="zip"><br>		
 	</div>
 	<script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>

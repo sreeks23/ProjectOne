@@ -28,6 +28,6 @@
 	</connectivity>
 
 
-	<procedure name="inquirePhoneBook" audit="true" connectAs="endUser"/>
+	<procedure name="inquirePhoneBook" audit="true" connectAs="server"/>
 	
 </wl:adapter>
