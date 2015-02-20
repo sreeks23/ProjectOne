@@ -24,7 +24,7 @@
    "APP_VERSION": "1.0",
    "ENVIRONMENT": "android",
    "LOGIN_DISPLAY_TYPE": "embedded",
-   "WORKLIGHT_NATIVE_VERSION": "1923165143",
+   "WORKLIGHT_NATIVE_VERSION": "1132815573",
    "WORKLIGHT_PLATFORM_VERSION": "6.3.0.0",
    "WORKLIGHT_ROOT_URL": "\/apps\/services\/api\/PhoneBook\/android\/"
 };
@@ -50,14 +50,12 @@
         </div>
         <div data-dojo-props="selected:false,scrollDir:'v'" data-dojo-type="dojox.mobile.ScrollableView" id="enterDetails">
             <div data-dojo-props="label:'Enter Details',back:'Back',moveTo:'selectionList',fixed:'top'" data-dojo-type="dojox.mobile.Heading"></div>
-            <label for="ln" style="font-weight: bold">  Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln">
+            <label for="ln1" style="font-weight: bold">Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln">
             <br>
             <button data-dojo-type="dojox.mobile.Button" id="OrderItemButton" onclick="inquirePhoneBook" style="font-weight: bold">Get Details</button>		
         </div>
         <div data-dojo-props="selected:false,scrollDir:'v'" data-dojo-type="dojox.mobile.ScrollableView" id="contactDetails">
             <div data-dojo-props="label:'Contact Details',back:'Back',moveTo:'enterDetails',fixed:'top'" data-dojo-type="dojox.mobile.Heading"></div>
-            <div data-dojo-type="dojox.mobile.EdgeToEdgeList" id="phonebookList">
-            </div>
             <label for="fn" style="font-weight: bold">  First Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="fn">
             <br>
             <label for="ln" style="font-weight: bold">  Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln">
@@ -65,7 +63,7 @@
             <label for="ext" style="font-weight: bold"> Extension :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ext">
             <br>
             <label for="zip" style="font-weight: bold"> Zip Code  :</label> <input data-dojo-type="dojox.mobile.TextBox" id="zip">
-            <br>
+            <br>		
         </div>
         <script src="js/initOptions.js"></script>
 	<script src="js/main.js"></script>
