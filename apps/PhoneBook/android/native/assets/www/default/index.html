@@ -37,25 +37,27 @@
 	window.$ = window.jQuery = WLJQ;
 </script>
 <script src="dojox/mobile/deviceTheme.js" type="text/javascript"></script>
-<script data-dojo-config="isDebug: false, async: true, parseOnLoad: true, mblHideAddressBar: false" src="dojo/dojo.js" type="text/javascript"></script>
+<script data-dojo-config="isDebug: false, async: true, parseOnLoad: true, mblHideAddressBar: false" src="http://10.0.0.3:9988/dojoLib/ProjectOne/PhoneBook/android/dojo/dojo.js" type="text/javascript"></script>
     </head>
     <body style="display: none;">
         <div data-dojo-props="selected:false,scrollDir:'v'" data-dojo-type="dojox.mobile.ScrollableView" id="selectionList">
             <div data-dojo-props="label:'Selection', fixed:'top'" data-dojo-type="dojox.mobile.Heading"></div>
             <div data-dojo-type="dojox.mobile.EdgeToEdgeList">
-                <div data-dojo-props="label:'Browse Contact', moveTo:'contactDetails'" data-dojo-type="dojox.mobile.ListItem"></div>
+                <div data-dojo-props="label:'Browse Contact', moveTo:'enterDetails'" data-dojo-type="dojox.mobile.ListItem"></div>
                 <div data-dojo-props="label:'Delete Contact'" data-dojo-type="dojox.mobile.ListItem"></div>
                 <div data-dojo-props="label:'Browse first 50 Contacts'" data-dojo-type="dojox.mobile.ListItem"></div>
             </div>
         </div>
         <div data-dojo-props="selected:false,scrollDir:'v'" data-dojo-type="dojox.mobile.ScrollableView" id="enterDetails">
             <div data-dojo-props="label:'Enter Details',back:'Back',moveTo:'selectionList',fixed:'top'" data-dojo-type="dojox.mobile.Heading"></div>
-            <label for="ln1" style="font-weight: bold">Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln">
             <br>
-            <button data-dojo-type="dojox.mobile.Button" id="OrderItemButton" onclick="inquirePhoneBook" style="font-weight: bold">Get Details</button>		
+            <label for="eln" style="font-weight: bold">  Last Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="eln">
+            <br>
+            <button data-dojo-props="moveTo:'enterDetails'" data-dojo-type="dojox.mobile.ToggleButton" onclick="inquirePhoneBook">SUBMIT</button>
         </div>
         <div data-dojo-props="selected:false,scrollDir:'v'" data-dojo-type="dojox.mobile.ScrollableView" id="contactDetails">
             <div data-dojo-props="label:'Contact Details',back:'Back',moveTo:'enterDetails',fixed:'top'" data-dojo-type="dojox.mobile.Heading"></div>
+            <br>
             <label for="fn" style="font-weight: bold">  First Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="fn">
             <br>
             <label for="ln" style="font-weight: bold">  Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln">

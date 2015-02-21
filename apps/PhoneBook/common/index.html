@@ -27,7 +27,7 @@
 			data-dojo-props="label:'Selection', fixed:'top'"></div>
 		<div data-dojo-type="dojox.mobile.EdgeToEdgeList">
 			<div data-dojo-type="dojox.mobile.ListItem"
-				data-dojo-props="label:'Browse Contact', moveTo:'contactDetails'"></div>
+				data-dojo-props="label:'Browse Contact', moveTo:'enterDetails'"></div>
 			<div data-dojo-type="dojox.mobile.ListItem"
 				data-dojo-props="label:'Delete Contact'"></div>
 			<div data-dojo-type="dojox.mobile.ListItem"
@@ -39,12 +39,13 @@
 		<div data-dojo-type="dojox.mobile.Heading"
 			data-dojo-props="label:'Enter Details',back:'Back',moveTo:'selectionList',fixed:'top'"></div>
 			<br>
-		<label for="eln" style="font-weight: bold">  Last Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="eln"><br>	
+		<label for="eln" style="font-weight: bold">  Last Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="eln"><br>
+		<button data-dojo-type="dojox.mobile.ToggleButton" data-dojo-props="moveTo:'enterDetails'" onclick="inquirePhoneBook">SUBMIT</button>
 	</div>
 	<div data-dojo-type="dojox.mobile.ScrollableView" id="contactDetails"
 		data-dojo-props="selected:false,scrollDir:'v'">
 		<div data-dojo-type="dojox.mobile.Heading"
-			data-dojo-props="label:'Contact Details',back:'Back',moveTo:'selectionList',fixed:'top'"></div>
+			data-dojo-props="label:'Contact Details',back:'Back',moveTo:'enterDetails',fixed:'top'"></div>
 		<br>
 		<label for="fn" style="font-weight: bold">  First Name:</label> <input data-dojo-type="dojox.mobile.TextBox" id="fn"><br>
 		<label for="ln" style="font-weight: bold">  Last Name :</label> <input data-dojo-type="dojox.mobile.TextBox" id="ln"><br>

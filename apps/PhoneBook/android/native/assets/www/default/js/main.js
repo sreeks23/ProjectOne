@@ -41,7 +41,7 @@ function wlCommonInit(){
 //This is the implemented version provided for this lab
 function dojoInit() {
 
-	require([ "dojo", "dojo/dom", "dijit/registry", "dojo/parser", "dojo/dom-style", "dojo/on", "dojox/mobile/ScrollableView", "dojox/mobile", "dojox/mobile/compat", "dojox/mobile/deviceTheme", "dojox/mobile/Heading", "dojox/mobile/Button", "dojox/mobile/ToolBarButton", "dojox/mobile/View", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/EdgeToEdgeList", "dojox/mobile/TextBox" ],
+	require([ "dojo", "dojo/dom", "dijit/registry", "dojo/parser", "dojo/dom-style", "dojo/on", "dojox/mobile/ScrollableView", "dojox/mobile", "dojox/mobile/compat", "dojox/mobile/deviceTheme", "dojox/mobile/Heading", "dojox/mobile/Button", "dojox/mobile/ToolBarButton", "dojox/mobile/View", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/EdgeToEdgeList", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton" ],
 			function(dojo, dom, registry, parser, domStyle, on) {
 				dojo.ready(function() {
 				});

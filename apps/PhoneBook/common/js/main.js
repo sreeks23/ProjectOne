@@ -39,7 +39,7 @@ function wlCommonInit(){
 //This is the implemented version provided for this lab
 function dojoInit() {
 
-	require([ "dojo", "dojo/dom", "dijit/registry", "dojo/parser", "dojo/dom-style", "dojo/on", "dojox/mobile/ScrollableView", "dojox/mobile", "dojox/mobile/compat", "dojox/mobile/deviceTheme", "dojox/mobile/Heading", "dojox/mobile/Button", "dojox/mobile/ToolBarButton", "dojox/mobile/View", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/EdgeToEdgeList", "dojox/mobile/TextBox" ],
+	require([ "dojo", "dojo/dom", "dijit/registry", "dojo/parser", "dojo/dom-style", "dojo/on", "dojox/mobile/ScrollableView", "dojox/mobile", "dojox/mobile/compat", "dojox/mobile/deviceTheme", "dojox/mobile/Heading", "dojox/mobile/Button", "dojox/mobile/ToolBarButton", "dojox/mobile/View", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/EdgeToEdgeList", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton" ],
 			function(dojo, dom, registry, parser, domStyle, on) {
 				dojo.ready(function() {
 				});
@@ -79,11 +79,11 @@ function dojoInit() {
 
 //This function drives the invocation of the BrowseListAdapter to send a request to the CICS backend
 //and get back the catalog data, which we store for here for later use 
-function inquirePhoneBook(){
+function inquirePhoneBook(lname){
 
 var inquireObject = {};  // Create an object to hold the data for the catalog request
 
-inquireObject.itemRef = 'sama';    // Start from item # 0000
+inquireObject.itemRef = lname;    // Start from item # 0000
 	
 console.log('inside invoke');
 var invocationData = {
@@ -108,3 +108,60 @@ WL.Client.invokeProcedure(invocationData, {
 });
 }
 
+function addToPhoneBook(){
+
+	var inquireObject = {};  // Create an object to hold the data for the catalog request
+
+	inquireObject.itemRef = 'sama';    // Start from item # 0000
+		
+	console.log('inside invoke');
+	var invocationData = {
+			adapter: "PhoneBookInqAdapter",
+			procedure: "inquirePhoneBook",
+			parameters: [inquireObject]
+	};
+	//alert('result-sree1' + invocationData);
+	console.log('inquirePhoneBook:invocationData: '+JSON.stringify(invocationData));
+	WL.Client.invokeProcedure(invocationData, {
+		onSuccess : function (result) {
+			console.log('results-sree1' + result);
+			 WL.Logger.debug("Retrieve success" +  JSON.stringify(result));
+			alert('result-sree2' + JSON.stringify(result));
+			catalogResults =result.invocationResult.SERVICE_OUTPUT.IVTNO_OUTPUT_MSG;
+			alert('statuscode'+JSON.stringify(catalogResults));
+			showCatalog();
+			},
+		onFailure : function (result) {
+			alert("Invocation failed: "+JSON.stringify(result));
+		},
+	});
+}
+
+function deletePhoneBook(){
+
+	var inquireObject = {};  // Create an object to hold the data for the catalog request
+
+	inquireObject.itemRef = 'sama';    // Start from item # 0000
+		
+	console.log('inside invoke');
+	var invocationData = {
+			adapter: "PhoneBookInqAdapter",
+			procedure: "inquirePhoneBook",
+			parameters: [inquireObject]
+	};
+	//alert('result-sree1' + invocationData);
+	console.log('inquirePhoneBook:invocationData: '+JSON.stringify(invocationData));
+	WL.Client.invokeProcedure(invocationData, {
+		onSuccess : function (result) {
+			console.log('results-sree1' + result);
+			 WL.Logger.debug("Retrieve success" +  JSON.stringify(result));
+			alert('result-sree2' + JSON.stringify(result));
+			catalogResults =result.invocationResult.SERVICE_OUTPUT.IVTNO_OUTPUT_MSG;
+			alert('statuscode'+JSON.stringify(catalogResults));
+			showCatalog();
+			},
+		onFailure : function (result) {
+			alert("Invocation failed: "+JSON.stringify(result));
+		},
+	});
+}
